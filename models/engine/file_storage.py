@@ -12,8 +12,9 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 
+
 class FileStorage:
-    """serializes instances to a JSON file and deserializes JSON file to instances."""
+    """serializes instances to a JSON and deserializes JSON to instances."""
 
     __file_path = "file.json"
     __objects = {}
@@ -40,7 +41,7 @@ class FileStorage:
             with open(FileStorage.__file_path, "r") as f:
                 obj_dict = json.load(f)
                 for key, val in new_obj.items():
-                        obj = self.class_dict[val['__class__']](**val)
-                        type(self).__objects[key] = obj
+                    obj = self.class_dict[val['__class__']](**val)
+                    type(self).__objects[key] = obj
         except Exception:
             return
