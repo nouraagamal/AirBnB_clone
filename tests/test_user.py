@@ -190,5 +190,6 @@ class TestUser_to_dict(unittest.TestCase):
         with self.assertRaises(TypeError):
             us.to_dict(None)
 
+
 if __name__ == "__main__":
     unittest.main()

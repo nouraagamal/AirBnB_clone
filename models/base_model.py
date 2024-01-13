@@ -5,6 +5,7 @@ import uuid
 from datetime import datetime
 import models
 
+
 class BaseModel:
     """Base class for models."""
 
@@ -35,7 +36,8 @@ class BaseModel:
     def __str__(self):
         """print: [<class name>] (<self.id>) <self.__dict__>"""
 
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        name = self.__class__.__name__
+        return "[{}] ({}) {}".format(name, self.id, self.__dict__)
 
     def save(self):
         """Updates the public instance attribute updated_at
