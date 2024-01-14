@@ -1,10 +1,5 @@
 #!/usr/bin/python3
 """Defines unittests for models/place.py.
-
-Unittest classes:
-    TestPlace_instantiation
-    TestPlace_save
-    TestPlace_to_dict
 """
 import os
 import models
@@ -70,9 +65,9 @@ class TestPlace_instantiation(unittest.TestCase):
 
     def test_max_guest_is_public_class_attribute(self):
         pl = Place()
-        self.assertEqual(int, type(Place.max_guests))
-        self.assertIn("max_guests", dir(pl))
-        self.assertNotIn("max_guests", pl.__dict__)
+        self.assertEqual(int, type(Place.max_guest))
+        self.assertIn("max_guest", dir(pl))
+        self.assertNotIn("max_guest", pl.__dict__)
 
     def test_price_by_night_is_public_class_attribute(self):
         pl = Place()

@@ -1,9 +1,5 @@
 #!/usr/bin/python3
-"""#Defines unittests for models/amenity.py.
-Unittest classes:
-    TestAmenity_instantiation
-    TestAmenity_save
-    TestAmenity_to_dict
+"""Defines unittests for models/amenity.py.
 """
 import os
 import models
@@ -14,7 +10,7 @@ from models.amenity import Amenity
 
 
 class TestAmenity_instantiation(unittest.TestCase):
-    """Unittests for testing instantiation of the Amenity class."""
+    """Unittests for the Amenity class."""
 
     def test_no_args_instantiates(self):
         self.assertEqual(Amenity, type(Amenity()))
@@ -85,7 +81,7 @@ class TestAmenity_instantiation(unittest.TestCase):
 
 
 class TestAmenity_save(unittest.TestCase):
-    """Unittests for testing save method of the Amenity class."""
+    """Unittests for testing save method."""
 
     @classmethod
     def setUp(self):
@@ -136,7 +132,7 @@ class TestAmenity_save(unittest.TestCase):
 
 
 class TestAmenity_to_dict(unittest.TestCase):
-    """Unittests for testing to_dict method of the Amenity class."""
+    """Unittests for testing the Amenity class."""
 
     def test_to_dict_type(self):
         self.assertTrue(dict, type(Amenity().to_dict()))
@@ -163,16 +159,16 @@ class TestAmenity_to_dict(unittest.TestCase):
         self.assertEqual(str, type(am_dict["updated_at"]))
 
     def test_to_dict_output(self):
-        dt = datetime.today()
+        date_time = datetime.today()
         am = Amenity()
         am.id = "123456"
-        am.created_at = am.updated_at = dt
+        am.created_at = am.updated_at = date_time
         tdict = {
             'id': '123456',
             '__class__': 'Amenity',
-            'created_at': dt.isoformat(),
-            'updated_at': dt.isoformat(),
-        }
+            'created_at': date_time.isoformat(),
+            'updated_at': date_time.isoformat(),
+            }
         self.assertDictEqual(am.to_dict(), tdict)
 
     def test_contrast_to_dict_dunder_dict(self):
